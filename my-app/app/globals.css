@@ -1,0 +1,346 @@
+﻿@import "tailwindcss";
+
+:root {
+  --background: #f4f7fb;
+  --foreground: #17202a;
+  --muted: #607086;
+  --panel: #ffffff;
+  --panel-strong: #f8fbff;
+  --primary: #146c94;
+  --primary-dark: #0f4f6c;
+  --accent: #f7b731;
+  --success: #21a67a;
+  --danger: #d94f44;
+  --border: #dbe5ef;
+  --shadow: 0 24px 70px rgba(17, 32, 46, 0.16);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(247, 183, 49, 0.22), transparent 34rem),
+    linear-gradient(135deg, #eaf5ff 0%, #f8fafc 46%, #fff7df 100%);
+  color: var(--foreground);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 28px;
+}
+
+.eyebrow,
+.section-label {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border-radius: 999px;
+  background: rgba(20, 108, 148, 0.1);
+  color: var(--primary-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  padding: 8px 12px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  max-width: 760px;
+  margin-top: 18px;
+  color: #101820;
+  font-size: 5rem;
+  line-height: 0.95;
+}
+
+.descricao {
+  max-width: 620px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.hero-card {
+  display: flex;
+  min-height: 210px;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  background: linear-gradient(155deg, var(--primary), #1b8a8f);
+  box-shadow: var(--shadow);
+  color: white;
+  padding: 24px;
+}
+
+.hero-card span,
+.hero-card small {
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 700;
+}
+
+.hero-card strong {
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.task-board {
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  padding: 26px;
+}
+
+.task-form {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel-strong);
+  padding: 18px;
+}
+
+.formulario {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 150px;
+  gap: 12px;
+  align-items: center;
+}
+
+label {
+  color: #243447;
+  font-weight: 800;
+}
+
+input[type="text"] {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--foreground);
+  outline: none;
+  padding: 14px 16px;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+input[type="text"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(20, 108, 148, 0.14);
+}
+
+.task-form button,
+.task-item button {
+  min-height: 48px;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 850;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.task-form button {
+  background: var(--primary);
+  box-shadow: 0 12px 24px rgba(20, 108, 148, 0.24);
+  color: white;
+}
+
+.task-form button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.erro {
+  margin-top: 10px;
+  color: var(--danger);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.board-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 26px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  margin-top: 10px;
+  color: #101820;
+  font-size: 1.8rem;
+}
+
+.contador {
+  display: grid;
+  min-width: 92px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  padding: 14px 18px;
+}
+
+.contador strong {
+  color: var(--primary);
+  font-size: 1.9rem;
+  line-height: 1;
+}
+
+.contador span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.task-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 14px;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.task-item:hover {
+  border-color: rgba(20, 108, 148, 0.42);
+  box-shadow: 0 14px 30px rgba(17, 32, 46, 0.08);
+  transform: translateY(-1px);
+}
+
+.task-item label {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+}
+
+input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--success);
+  flex: 0 0 auto;
+}
+
+.task-item span {
+  overflow-wrap: anywhere;
+  color: #1f2d3d;
+  font-size: 1.02rem;
+}
+
+.task-item.is-done {
+  background: #f6fbf8;
+}
+
+.task-item.is-done span {
+  color: #6c7a89;
+  text-decoration: line-through;
+}
+
+.task-item button {
+  background: #fff3f0;
+  color: var(--danger);
+  padding: 0 16px;
+}
+
+.task-item button:hover {
+  background: #ffe4df;
+}
+
+.empty-state {
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--muted);
+  padding: 28px;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    width: min(100% - 24px, 1120px);
+    padding: 28px 0;
+  }
+
+  .hero,
+  .formulario,
+  .task-item {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    min-height: 160px;
+  }
+
+  .board-header {
+    align-items: flex-start;
+  }
+
+  .task-board {
+    padding: 16px;
+  }
+
+  .task-item button,
+  .task-form button {
+    width: 100%;
+  }
+}
+
+
