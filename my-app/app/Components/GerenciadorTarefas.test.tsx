@@ -7,7 +7,13 @@ const tarefas: Tarefa[] = [
   { id: 2, titulo: "Praticar testes", concluida: true },
 ];
 
+const STORAGE_KEY = "tarefas:v1";
+
 describe("GerenciadorTarefas", () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
+
   it("renderiza as tarefas iniciais e o contador", () => {
     render(<GerenciadorTarefas tarefasIniciais={tarefas} />);
 
@@ -28,6 +34,9 @@ describe("GerenciadorTarefas", () => {
 
     expect(screen.getByText("Enviar projeto")).toBeInTheDocument();
     expect(screen.getByTestId("contador")).toHaveTextContent("3");
+
+    const raw = localStorage.getItem(STORAGE_KEY);
+    expect(raw).not.toBeNull();
   });
 
   it("alterna e remove tarefas", () => {
